@@ -9,6 +9,9 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <Label
+            VerticalOptions = "Center"
+            HorizontalOptions = "Center"/>
 
             <Entry Placeholder = "Enter Name"
                    Text = "{Binding Name}"
@@ -17,28 +20,19 @@
             <Entry Placeholder = "Enter Amount"
                    Text = "{Binding Amount}"
                    Grid.Row="2"/>
-              
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
-
-            <Label
-                Text="The Dept Book"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
             <Label
                 Text="{Binding ViewName}"
                 />
             <Label
                 Text="{Binding ViewAmount}" />
+            
             <Button
                 IsEnabled="{Binding IsBusy}"
                 Command="{Binding TapCommand}"
-                Text="Click me Daddy" 
+                Text="Add" 
                 HorizontalOptions="Center" />
         </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
+
