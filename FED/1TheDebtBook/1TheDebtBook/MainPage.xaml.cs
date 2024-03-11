@@ -7,6 +7,7 @@ namespace _1TheDebtBook
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new DebtorsViewModel();
         }
         private async void OnAddButtonClicked(object sender, EventArgs e)
         {

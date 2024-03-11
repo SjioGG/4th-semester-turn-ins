@@ -5,6 +5,6 @@ public partial class AddPage : ContentPage
 	public AddPage()
 	{
 		InitializeComponent();
-        BindingContext = new DebtorsViewModel();
+        BindingContext = new Debtor();
     }
 }

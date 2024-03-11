@@ -5,24 +5,21 @@ using System.Runtime.CompilerServices;
 
 namespace _1TheDebtBook
 {
-    public class DebtorsViewModel : ObservableObject
+    public partial class DebtorsViewModel : ObservableObject
     {
+        [ObservableProperty]
         private ObservableCollection<Debtor> _debtors;
-
-        public ObservableCollection<Debtor> Debtors
-        {
-            get { return _debtors; }
-            set { SetProperty(ref _debtors, value); }
-        }
 
         public DebtorsViewModel()
         {
             // Initialize the collection of debtors
-            Debtors = new ObservableCollection<Debtor>();
-            // Add sample debtors for testing
-            Debtors.Add(new Debtor { Name = "John", Amount = 100.0 });
-            Debtors.Add(new Debtor { Name = "Alice", Amount = 200.0 });
-            Debtors.Add(new Debtor { Name = "Bob", Amount = 300.0 });
+            Debtors =
+            [
+                // Add sample debtors for testing
+                new Debtor { Name = "John", Amount = 100.0 },
+                new Debtor { Name = "Alice", Amount = 200.0 },
+                new Debtor { Name = "Bob", Amount = 300.0 },
+            ];
         }
     }
 }

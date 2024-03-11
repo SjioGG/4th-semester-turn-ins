@@ -23,19 +23,20 @@ namespace _1TheDebtBook
 
         public double ViewAmount => Amount;
 
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotBusy))]
-        bool isBusy;
-        public bool  IsNotBusy => !IsBusy;
-
         [RelayCommand]
-        void Tap()
+        public void AddDebtor()
         {
-            IsBusy = true;
+            // Create a new debtor object using the entered name and amount
+            Debtor newDebtor = new() { Name = Name, Amount = Amount };
+            // Add the new debtor object to the collection or data source
+            // (You need to implement this logic based on your requirements)
+            // For example, you can have a collection of debtors in your view model and add the new debtor to it.
+            DebtorsViewModel.Debtors.Add(newDebtor);
 
-            Console.WriteLine(name, ViewName);
-
-            IsBusy = false;
+            // Clear the input fields after adding the debtor
+            Name = "";
+            Amount = 0.0;
         }
     }
 }
+

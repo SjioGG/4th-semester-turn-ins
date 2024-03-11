@@ -1,39 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:_1TheDebtBook"
-             x:DataType="viewmodel:DebtorsViewModel"
              x:Class="_1TheDebtBook.MainPage">
-
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Label
-            VerticalOptions = "Center"
-            HorizontalOptions = "Center"/>
-
-            <Button Text="Add"
-                    Clicked ="OnAddButtonClicked"/>
-
-            <!-- THIS IS MAYBE SHIT CODE THAT DOESNT WORK??? DELETE MAYBE IDK??-->
-            <ListView x:Name="ListViewItems">
-                <ListView.ItemTemplate>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding Debtors}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Name}" Grid.Column="0" HorizontalOptions="Start" />
-                                <Label Text="{Binding Amount}" Grid.Column="1" HorizontalOptions="End" />
-                            </Grid>
-                        </ViewCell>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Binding ViewName}" />
+                            <Label Grid.Column="1" Text="{Binding ViewAmount}" />
+                        </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </VerticalStackLayout>
-        </ScrollView>
-</ContentPage>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
+            <Button 
+                Text="Add Debtor"
+                Clicked="OnAddButtonClicked"
+                HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
