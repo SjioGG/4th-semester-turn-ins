@@ -13,26 +13,27 @@
             VerticalOptions = "Center"
             HorizontalOptions = "Center"/>
 
-            <Entry Placeholder = "Enter Name"
-                   Text = "{Binding Name}"
-                   Grid.Row="1"/>
+            <Button Text="Add"
+                    Clicked ="OnAddButtonClicked"/>
 
-            <Entry Placeholder = "Enter Amount"
-                   Text = "{Binding Amount}"
-                   Grid.Row="2"/>
-            <Label
-                Text="{Binding ViewName}"
-                />
-            <Label
-                Text="{Binding ViewAmount}" />
-            
-            <Button
-                IsEnabled="{Binding IsBusy}"
-                Command="{Binding TapCommand}"
-                Text="Add" 
-                HorizontalOptions="Center" />
+            <!-- THIS IS MAYBE SHIT CODE THAT DOESNT WORK??? DELETE MAYBE IDK??-->
+            <ListView x:Name="ListViewItems">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" Grid.Column="0" HorizontalOptions="Start" />
+                                <Label Text="{Binding Amount}" Grid.Column="1" HorizontalOptions="End" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </VerticalStackLayout>
-    </ScrollView>
-
+        </ScrollView>
 </ContentPage>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_1TheDebtBook.Pages.AddPage"
+             Title="AddPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label
+            VerticalOptions = "Center"
+            HorizontalOptions = "Center"/>
+
+            <Entry Placeholder = "Enter Name"
+                   Text = "{Binding Name}"
+                   Grid.Row="1"/>
+
+            <Entry Placeholder = "Enter Amount"
+                   Text = "{Binding Amount}"
+                   Grid.Row="2"/>
+            <Label
+                Text="{Binding ViewName}"
+                />
+            <Label
+                Text="{Binding ViewAmount}" />
+
+            <Button
+                IsEnabled="{Binding IsBusy}"
+                Command="{Binding TapCommand}"
+                Text="Save" 
+                HorizontalOptions="Fill" />
+            <Button 
+                IsEnabled="{Binding IsBusy}"
+                Command="{Binding TapCommand}"
+                Text="Cancel"
+                HorizontalOptions="Fill" />
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+

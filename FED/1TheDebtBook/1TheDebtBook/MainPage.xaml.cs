@@ -1,11 +1,17 @@
-﻿namespace _1TheDebtBook
+﻿using _1TheDebtBook.Pages;
+
+namespace _1TheDebtBook
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
-            BindingContext = new Debtor();
+        }
+        private async void OnAddButtonClicked(object sender, EventArgs e)
+        {
+            // Navigate to the new page or window
+            await Navigation.PushAsync(new AddPage());
         }
     }
 }
