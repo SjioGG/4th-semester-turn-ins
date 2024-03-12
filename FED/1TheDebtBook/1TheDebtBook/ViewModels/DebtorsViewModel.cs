@@ -1,9 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using _1TheDebtBook.Data;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace _1TheDebtBook
+namespace _1TheDebtBook.ViewModels
 {
     public partial class DebtorsViewModel : ObservableObject
     {
@@ -12,14 +13,20 @@ namespace _1TheDebtBook
 
         public DebtorsViewModel()
         {
-            // Initialize the collection of debtors
-            Debtors =
-            [
-                // Add sample debtors for testing
-                new Debtor { Name = "John", Amount = 100.0 },
-                new Debtor { Name = "Alice", Amount = 200.0 },
-                new Debtor { Name = "Bob", Amount = 300.0 },
-            ];
+            Debtors = _debtors;
+            _database = new Database();
+            _ = Initialize();
+        }
+
+        private readonly Database _database;
+
+        private async Task Initialize()
+        {
+            var debtorViews = await _database.GetDebtors();
+            foreach (var debtorView in debtorViews)
+            {
+                Debtors.Add(debtorView);
+            }
         }
     }
 }
