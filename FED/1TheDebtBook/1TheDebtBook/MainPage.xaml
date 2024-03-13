@@ -25,8 +25,13 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" Text="{Binding Name}" HorizontalOptions="FillAndExpand"/>
-                                            <Label Grid.Column="1" Text="{Binding Amount}" HorizontalOptions="CenterAndExpand"/>
+
+                                            <Label Grid.Column="0" Text="{Binding Name}" HorizontalOptions="FillAndExpand"
+                                            Style="{DynamicResource Label1}"/>  <!-- Styled Label -->
+
+                                            <Label Grid.Column="1" Text="{Binding Amount}" HorizontalOptions="CenterAndExpand"
+                                            Style="{DynamicResource Label2}"/> <!-- Styled Label -->
+
                                         </Grid>
                                         <!-- Adjusted BoxView -->
                                         <BoxView HeightRequest="1" 

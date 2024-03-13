@@ -12,6 +12,14 @@
             <Setter Property="FontSize" Value="24" />
         </Style>
 
+<!-- Style for Label (Meant as header2)-->
+        <Style x:key="Label2" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource Secondary}" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextAlignment" Value="Left" />
+
+        </Style>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
