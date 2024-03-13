@@ -54,6 +54,10 @@
                 Text="Go to Overview (Generalez)"
                 Command="{Binding NavigateOverCommand}"
                 HorizontalOptions="Center" />
+            <Button 
+                Text="Clear Data"
+                Command="{Binding ClearAllDataCommand}"
+                HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

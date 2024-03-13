@@ -3,13 +3,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using _1TheDebtBook.Models;
-using System.Transactions;
-using _1TheDebtBook.Pages;
-using System.Xml.Linq;
+
 
 namespace _1TheDebtBook.ViewModels;
-
-[QueryProperty("Text", "Text")]
 
 public partial class OverviewViewModel : ObservableObject
 {
@@ -28,16 +24,25 @@ public partial class OverviewViewModel : ObservableObject
         var dTransactionViews = await _database.GetTransactions();
         foreach (var dTransactionView in dTransactionViews)
         {
-            Transactions.Add(dTransactionView);
+            Transactions.Add(dTransactionView); 
         }
     }
+
+    [ObservableProperty]
+    DateTime transDate;
+    [ObservableProperty]
+    double inputAmount;
+    [ObservableProperty]
+    int inputDebtorId;
+
     [RelayCommand]
     public async Task AddTransaction()
     {
         dTransaction transaction = new dTransaction
         {
             dTransactionDate = TransDate,
-            Amount = Amount
+            Amount = InputAmount,
+            DebtorId = InputDebtorId
         };
         await _database.AddTransaction(transaction);
         Transactions.Add(transaction);

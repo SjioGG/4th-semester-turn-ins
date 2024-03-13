@@ -73,5 +73,12 @@ namespace _1TheDebtBook.Data
         {
             return await _connection.UpdateAsync(item);
         }
+
+        // Method to clear all data from both tables
+        public async Task ClearAllData()
+        {
+            await _connection.DeleteAllAsync<Debtor>();
+            await _connection.DeleteAllAsync<dTransaction>();
+        }
     }
 }

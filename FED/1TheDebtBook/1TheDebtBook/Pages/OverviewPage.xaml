@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:_1TheDebtBook.ViewModels"
-             x:DataType="viewmodel:OverviewViewModel"
              x:Class="_1TheDebtBook.Pages.OverviewPage"
              Title="OverviewPage">
      <ScrollView>
@@ -52,12 +50,13 @@
                                 VerticalOptions = "Center"
                                 HorizontalOptions = "Center"/>
 
-                            <Entry Placeholder = "Enter Name"
-                                Text = "{Binding TransDate}"
-                                Grid.Row="1"/>
+                            <DatePicker Date="{Binding InputTransDate}" Grid.Row="1" />
 
                             <Entry Placeholder = "Enter Amount"
-                                Text = "{Binding Amount}"
+                                Text = "{Binding InputAmount}"
+                                Grid.Row="2"/>
+                            <Entry Placeholder = "Enter DebtorId"
+                                Text = "{Binding InputDebtorId}"
                                 Grid.Row="2"/>
                             <Button
                                 Command="{Binding AddTransactionCommand}"

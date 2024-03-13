@@ -1,8 +1,6 @@
 ﻿using _1TheDebtBook.Data;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using _1TheDebtBook.Pages;
 using CommunityToolkit.Mvvm.Input;
 using _1TheDebtBook.Models;
@@ -42,6 +40,12 @@ namespace _1TheDebtBook.ViewModels
             await _database.DeleteDebtor(debtor);
             Debtors.Remove(debtor);
         }
+        [RelayCommand]
+        public async Task ClearAllData()
+        {
+            await _database.ClearAllData();
+        }
+
 
         [RelayCommand]
         async Task NavigateOver() =>
