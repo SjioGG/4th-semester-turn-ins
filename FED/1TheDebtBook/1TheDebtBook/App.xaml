@@ -15,18 +15,18 @@
         <!-- Style for Label2-->
         <Style x:Key="Label2" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource Secondary}" />
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontSize" Value="24" />
         </Style>
 
-        <!-- Style for Lavbel3-->
+        <!-- Style for Label3-->
         <Style x:Key="Label3" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource PrimaryDark}" /> 
-            <Setter Property="FontSize" Value="36" />
+            <Setter Property="FontSize" Value="52" />
         </Style>
 
         <!-- Style for Button1-->
         <Style x:Key="Button1" TargetType="Button">
-            <Setter Property="TextColor" Value="{DynamicResource Primary}" />
+            <Setter Property="TextColor" Value="{DynamicResource Black}" />
             <Setter Property="BackgroundColor" Value="{DynamicResource Secondary}" />
             <Setter Property="FontSize" Value="24" />
         </Style>

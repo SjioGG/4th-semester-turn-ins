@@ -3,12 +3,26 @@
              x:Class="_1TheDebtBook.MainPage">
 
     <ContentPage.Content>
-        <StackLayout>
-            <Frame 
+     <Grid RowDefinitions="100, Auto, *"
+          ColumnDefinitions="0.20*, 0.60*, 0.20*"
+          Padding="8"
+          RowSpacing="8"
+          ColumnSpacing="8">
+
+        <!-- Put the label Header in the middle of the grid -->
+        <Label Grid.Column="1"
+               Grid.Row="0"
+               Text="The Debt Book"
+               HorizontalOptions="CenterAndExpand"
+               Style="{DynamicResource Label3}"/> <!-- Styled Label -->
+
+        <!-- Put the stack layout in a frame, in the middle of the grid -->
+            <Frame Grid.Column="2"
+            Grid.Row="1"
                    Padding="15" 
                    CornerRadius="10" 
-                   HeightRequest="300" 
-                   WidthRequest="550"
+                   HeightRequest="400" 
+                   WidthRequest="725"
                    BorderColor="White">
 
                 <ScrollView>
@@ -19,11 +33,7 @@
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <StackLayout>
-                                         <Label Text="The Debt Book"
-                                                HorizontalOptions="Center"
-                                                Style="{DynamicResource Label3}"/> <!-- Styled Label -->
-                                    
+                                    <StackLayout>                        
                                         <Grid Padding="1">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
@@ -51,10 +61,12 @@
             </Frame>
 
             <Button 
+                Grid.Column="1"
+                Grid.Row="2"
                 Text="Add Debtor"
                 Command="{Binding NavigateCommand}"
-                HorizontalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" 
                 Style="{DynamicResource Button1}"/> <!-- Styled Button -->
-        </StackLayout>
+    </Grid>
     </ContentPage.Content>
 </ContentPage>
