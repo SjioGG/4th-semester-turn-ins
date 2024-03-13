@@ -3,7 +3,7 @@
              x:Class="_1TheDebtBook.MainPage">
 
     <ContentPage.Content>
-     <Grid RowDefinitions="100, Auto, *"
+     <Grid RowDefinitions="*, Auto, 100"
           ColumnDefinitions="0.20*, 0.60*, 0.20*"
           Padding="8"
           RowSpacing="8"
@@ -17,47 +17,41 @@
                Style="{DynamicResource Label3}"/> <!-- Styled Label -->
 
         <!-- Put the stack layout in a frame, in the middle of the grid -->
-            <Frame Grid.Column="2"
-            Grid.Row="1"
-                   Padding="15" 
-                   CornerRadius="10" 
-                   HeightRequest="400" 
-                   WidthRequest="725"
-                   BorderColor="White">
+                    <Frame Grid.Column="1"
+                            Grid.Row="1"
+                            Padding="15" 
+                            CornerRadius="10" 
+                            HeightRequest="400" 
+                            WidthRequest="725"
+                            BorderColor="White">
 
-                <ScrollView>
-                    <StackLayout>
-                        <CollectionView ItemsSource="{Binding Debtors}">
-                            <CollectionView.ItemsLayout>
-                                <GridItemsLayout Orientation="Vertical" Span="1" />
-                            </CollectionView.ItemsLayout>
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout>                        
-                                        <Grid Padding="1">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
+                <CollectionView ItemsSource="{Binding Debtors}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>                        
+                                <Grid Padding="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                            <Label Grid.Column="0" Text="{Binding Name}" HorizontalOptions="FillAndExpand"
-                                            Style="{DynamicResource Label1}"/>  <!-- Styled Label -->
+                                    <Label Grid.Column="0" Text="{Binding Name}" HorizontalOptions="FillAndExpand"
+                                        Style="{DynamicResource Label1}"/>
 
-                                            <Label Grid.Column="1" Text="{Binding Amount}" HorizontalOptions="StartAndExpand"
-                                            Style="{DynamicResource Label2}"/> <!-- Styled Label -->
-
-                                        </Grid>
-                                        <!-- Adjusted BoxView -->
-                                        <BoxView HeightRequest="1" 
-                                                 BackgroundColor="White" 
-                                                 Margin="0"
-                                                 HorizontalOptions="FillAndExpand"/>
-                                    </StackLayout>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </StackLayout>
-                </ScrollView>
+                                    <Label Grid.Column="1" Text="{Binding Amount}" HorizontalOptions="StartAndExpand"
+                                        Style="{DynamicResource Label2}"/>
+                                </Grid>
+                                <BoxView HeightRequest="1" 
+                                        BackgroundColor="White" 
+                                        Margin="0"
+                                        HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </Frame>
 
             <Button 
@@ -65,7 +59,7 @@
                 Grid.Row="2"
                 Text="Add Debtor"
                 Command="{Binding NavigateCommand}"
-                HorizontalOptions="CenterAndExpand" 
+                HorizontalOptions="Center" 
                 Style="{DynamicResource Button1}"/> <!-- Styled Button -->
     </Grid>
     </ContentPage.Content>

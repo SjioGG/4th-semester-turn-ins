@@ -28,7 +28,7 @@
         <Style x:Key="Button1" TargetType="Button">
             <Setter Property="TextColor" Value="{DynamicResource Black}" />
             <Setter Property="BackgroundColor" Value="{DynamicResource Secondary}" />
-            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontSize" Value="32" />
         </Style>
 
             <ResourceDictionary.MergedDictionaries>
