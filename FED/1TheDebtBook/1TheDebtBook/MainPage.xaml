@@ -3,7 +3,7 @@
              x:Class="_1TheDebtBook.MainPage">
 
     <ContentPage.Content>
-     <Grid RowDefinitions="*, Auto, 100"
+     <Grid RowDefinitions="*, Auto, 70"
           ColumnDefinitions="0.20*, 0.60*, 0.20*"
           Padding="8"
           RowSpacing="8"
