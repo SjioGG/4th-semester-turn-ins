@@ -4,7 +4,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="LightBlue" 
+            <Frame 
                    Padding="15" 
                    CornerRadius="10" 
                    HeightRequest="300" 
