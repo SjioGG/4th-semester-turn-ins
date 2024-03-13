@@ -15,8 +15,5 @@ namespace _1TheDebtBook.Models
     public string Name{ get; set; }
 
     public double Amount { get; set; }
-
-    public List<Transaction> Transactions { get; set; }
-
     }
 }

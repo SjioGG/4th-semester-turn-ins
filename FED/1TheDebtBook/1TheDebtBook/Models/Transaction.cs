@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace _1TheDebtBook.Models
 {
-    public class Transaction
+    public class dTransaction
     {
-        [PrimaryKey,AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public DateTime TransactionDate { get; set; }
+        public DateTime dTransactionDate { get; set; }
         public double Amount { get; set; }
+        [ForeignKey("DebtorId")]
         public int DebtorId { get; set; }
     }
 }

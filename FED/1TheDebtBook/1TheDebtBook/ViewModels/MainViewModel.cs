@@ -42,5 +42,9 @@ namespace _1TheDebtBook.ViewModels
             await _database.DeleteDebtor(debtor);
             Debtors.Remove(debtor);
         }
+
+        [RelayCommand]
+        async Task NavigateOver() =>
+            await AppShell.Current.GoToAsync(nameof(OverviewPage));
     }
 }

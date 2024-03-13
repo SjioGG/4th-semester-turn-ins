@@ -20,13 +20,14 @@ namespace _1TheDebtBook.Data
             //    securestorage.setasync("dbencryptionkey", _dbencryptionkey);
             //}
             var dbOptions = new SQLiteConnectionString(databasePath, true);
-
+            
             _connection = new SQLiteAsyncConnection(dbOptions);
             _ = Initialise();
         }
         private async Task Initialise()
         {
             await _connection.CreateTableAsync<Debtor>();
+            await _connection.CreateTableAsync<dTransaction>(); // Create Transaction table
         }
         public async Task<List<Debtor>> GetDebtors()
         {
@@ -46,6 +47,29 @@ namespace _1TheDebtBook.Data
             return await _connection.DeleteAsync(item);
         }
         public async Task<int> UpdateDebtor(Debtor item)
+        {
+            return await _connection.UpdateAsync(item);
+        }
+
+        // Methods for Transactions
+        public async Task<List<dTransaction>> GetTransactions()
+        {
+            return await _connection.Table<dTransaction>().ToListAsync();
+        }
+        public async Task<dTransaction> GetTransaction(int id)
+        {
+            var query = _connection.Table<dTransaction>().Where(t => t.Id == id);
+            return await query.FirstOrDefaultAsync();
+        }
+        public async Task<int> AddTransaction(dTransaction item)
+        {
+            return await _connection.InsertAsync(item);
+        }
+        public async Task<int> DeleteTransaction(dTransaction item)
+        {
+            return await _connection.DeleteAsync(item);
+        }
+        public async Task<int> UpdateTransaction(dTransaction item)
         {
             return await _connection.UpdateAsync(item);
         }
