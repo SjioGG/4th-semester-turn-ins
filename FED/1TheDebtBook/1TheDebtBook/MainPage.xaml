@@ -24,7 +24,7 @@
 
             <Button 
                 Text="Add Debtor"
-                Clicked="OnAddButtonClicked"
+                Command="{Binding NavigateCommand}"
                 HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>

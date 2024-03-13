@@ -3,6 +3,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using _1TheDebtBook.Pages;
+using CommunityToolkit.Mvvm.Input;
 
 namespace _1TheDebtBook.ViewModels
 {
@@ -13,7 +15,7 @@ namespace _1TheDebtBook.ViewModels
 
         public DebtorsViewModel()
         {
-            Debtors = _debtors;
+            Debtors = new ObservableCollection<Debtor>();
             _database = new Database();
             _ = Initialize();
         }
@@ -28,5 +30,10 @@ namespace _1TheDebtBook.ViewModels
                 Debtors.Add(debtorView);
             }
         }
+
+        [RelayCommand]
+        async Task Navigate() =>
+            await AppShell.Current.GoToAsync(nameof(AddPage));
+
     }
 }

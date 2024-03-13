@@ -17,7 +17,6 @@ namespace _1TheDebtBook.ViewModels
         public Debtor()
         {
             _database = new Database();
-            
         }
 
         [PrimaryKey, AutoIncrement]
@@ -48,6 +47,7 @@ namespace _1TheDebtBook.ViewModels
         }
 
         private readonly Database _database;
+        private DebtorsViewModel _debtorsViewModel;
     }
 }
 

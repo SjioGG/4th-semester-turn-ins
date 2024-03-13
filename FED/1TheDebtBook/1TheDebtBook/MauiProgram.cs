@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using _1TheDebtBook.ViewModels;
+using Microsoft.Extensions.Logging;
+using _1TheDebtBook.Pages;
 
 namespace _1TheDebtBook
 {
@@ -17,9 +19,16 @@ namespace _1TheDebtBook
 
 #if DEBUG
     		builder.Logging.AddDebug();
-#endif
+            // adding view models
+            builder.Services.AddSingleton<DebtorsViewModel>();
+            builder.Services.AddTransient<Debtor>();
+            // adding pages
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<AddPage>();
+#endif      
 
-            return builder.Build();
+            var app = builder.Build();
+            return app;
         }
     }
 }
