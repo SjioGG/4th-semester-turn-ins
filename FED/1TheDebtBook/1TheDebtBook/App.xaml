@@ -6,18 +6,16 @@
     <Application.Resources>
         <ResourceDictionary>
 
-  <!-- Style for Label (Meant as header1)-->
-        <Style x:key="Label1" TargetType="Label">
+        <!-- Style for Label (Meant as header1)-->
+        <Style x:Key="Label1" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource Primary}" /> <!-- TextColor set to primary, from colors.xaml -->
             <Setter Property="FontSize" Value="24" />
         </Style>
 
-<!-- Style for Label (Meant as header2)-->
-        <Style x:key="Label2" TargetType="Label">
+        <!-- Style for Label (Meant as header2)-->
+        <Style x:Key="Label2" TargetType="Label">
             <Setter Property="TextColor" Value="{DynamicResource Secondary}" />
             <Setter Property="FontSize" Value="20" />
-            <Setter Property="TextAlignment" Value="Left" />
-
         </Style>
 
             <ResourceDictionary.MergedDictionaries>
