@@ -46,6 +46,13 @@ namespace _1TheDebtBook.ViewModels
             await _database.ClearAllData();
         }
 
+        [RelayCommand]
+        private async Task ViewTransactions(Debtor debtor)
+        {
+            // Navigate to TransactionsPage passing debtor's ID
+            await AppShell.Current.GoToAsync($"{nameof(OverviewPage)}?DebtorId={debtor.Id}");
+        }
+    
 
         [RelayCommand]
         async Task NavigateOver() =>

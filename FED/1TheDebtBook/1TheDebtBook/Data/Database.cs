@@ -74,6 +74,12 @@ namespace _1TheDebtBook.Data
             return await _connection.UpdateAsync(item);
         }
 
+        // Method to get transactions for a specific debtor ID
+        public async Task<List<dTransaction>> GetTransactionsForDebtor(int debtorId)
+        {
+            var query = _connection.Table<dTransaction>().Where(t => t.DebtorId == debtorId);
+            return await query.ToListAsync();
+        }
         // Method to clear all data from both tables
         public async Task ClearAllData()
         {

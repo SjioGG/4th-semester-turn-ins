@@ -13,7 +13,9 @@
 
                 <ScrollView>
                     <StackLayout>
-                        <CollectionView ItemsSource="{Binding Debtors}">
+                        <CollectionView ItemsSource="{Binding Debtors}"
+                                        SelectionMode="Single"
+                                        SelectionChangedCommand="{Binding ViewTransactionsCommand}">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical" Span="1" />
                             </CollectionView.ItemsLayout>

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using _1TheDebtBook.Models;
+using _1TheDebtBook.Pages;
 
 
 namespace _1TheDebtBook.ViewModels;
@@ -47,5 +48,4 @@ public partial class OverviewViewModel : ObservableObject
         await _database.AddTransaction(transaction);
         Transactions.Add(transaction);
     }
-
 }
