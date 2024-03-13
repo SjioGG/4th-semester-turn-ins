@@ -36,5 +36,11 @@ namespace _1TheDebtBook.ViewModels
         async Task Navigate() =>
             await AppShell.Current.GoToAsync(nameof(AddPage));
 
+        [RelayCommand]
+        public async Task DeleteDebtor(Debtor debtor)
+        {
+            await _database.DeleteDebtor(debtor);
+            Debtors.Remove(debtor);
+        }
     }
 }

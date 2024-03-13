@@ -22,9 +22,11 @@ namespace _1TheDebtBook
             // adding view models
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddTransient<AddViewModel>();
+            builder.Services.AddTransient<OverviewViewModel>(); 
             // adding pages
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddPage>();
+            builder.Services.AddTransient<OverviewPage>();
 #endif      
 
             var app = builder.Build();

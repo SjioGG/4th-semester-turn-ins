@@ -1,9 +1,11 @@
+using _1TheDebtBook.ViewModels;
 namespace _1TheDebtBook.Pages;
 
-public partial class NewPage2 : ContentPage
+public partial class OverviewPage : ContentPage
 {
-	public NewPage2()
+	public OverviewPage(OverviewViewModel vm)
 	{
-		InitializeComponent();
+        InitializeComponent();
+        BindingContext = vm;
 	}
 }
