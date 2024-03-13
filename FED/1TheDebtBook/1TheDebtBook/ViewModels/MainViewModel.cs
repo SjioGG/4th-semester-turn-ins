@@ -49,10 +49,10 @@ namespace _1TheDebtBook.ViewModels
         [RelayCommand]
         private async Task ViewTransactions(Debtor debtor)
         {
+            Console.WriteLine("Viewing transactions for " + debtor.Id);
             // Navigate to TransactionsPage passing debtor's ID
             await AppShell.Current.GoToAsync($"{nameof(OverviewPage)}?DebtorId={debtor.Id}");
         }
-    
 
         [RelayCommand]
         async Task NavigateOver() =>

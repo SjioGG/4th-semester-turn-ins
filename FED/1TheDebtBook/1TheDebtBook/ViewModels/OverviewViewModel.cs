@@ -4,48 +4,54 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.Input;
 using _1TheDebtBook.Models;
 using _1TheDebtBook.Pages;
+using System.Threading.Tasks;
 
 
-namespace _1TheDebtBook.ViewModels;
-
-public partial class OverviewViewModel : ObservableObject
+namespace _1TheDebtBook.ViewModels
 {
-    [ObservableProperty]
-    private ObservableCollection<dTransaction> _transactions;
+    public partial class OverviewViewModel : ObservableObject
+    {
+        [ObservableProperty]
+        private ObservableCollection<dTransaction> _transactions;
 
-    private readonly Database _database;
-    public OverviewViewModel()
-    {
-        Transactions = new ObservableCollection<dTransaction>();
-        _database = new Database();
-        _ = Initialize();
-    }
-    private async Task Initialize()
-    {
-        var dTransactionViews = await _database.GetTransactions();
-        foreach (var dTransactionView in dTransactionViews)
+        private readonly Database _database;
+
+        // Property to hold the DebtorId
+        [ObservableProperty]
+        private int _debtorId;
+
+        public OverviewViewModel()
         {
-            Transactions.Add(dTransactionView); 
+            Transactions = new ObservableCollection<dTransaction>();
+            _database = new Database();
+            _ = Initialize();
         }
-    }
 
-    [ObservableProperty]
-    DateTime transDate;
-    [ObservableProperty]
-    double inputAmount;
-    [ObservableProperty]
-    int inputDebtorId;
-
-    [RelayCommand]
-    public async Task AddTransaction()
-    {
-        dTransaction transaction = new dTransaction
+        private async Task Initialize()
         {
-            dTransactionDate = TransDate,
-            Amount = InputAmount,
-            DebtorId = InputDebtorId
-        };
-        await _database.AddTransaction(transaction);
-        Transactions.Add(transaction);
+            // Ensure DebtorId is set before retrieving transactions
+
+                var dTransactionViews = await _database.GetTransactionsForDebtor(_debtorId);
+                foreach (var dTransactionView in dTransactionViews)
+                {
+                    Transactions.Add(dTransactionView);
+                }
+            
+        }
+
+        [ObservableProperty]
+        private double _inputAmount;
+
+        [RelayCommand]
+        public async Task AddTransaction()
+        {
+            dTransaction transaction = new dTransaction
+            {
+                Amount = InputAmount,
+                DebtorId = DebtorId
+            };
+            await _database.AddTransaction(transaction);
+            Transactions.Add(transaction);
+        }
     }
 }

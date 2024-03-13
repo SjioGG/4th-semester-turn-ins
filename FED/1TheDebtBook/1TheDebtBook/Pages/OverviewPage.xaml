@@ -28,7 +28,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Label Grid.Column="0" Text="{Binding dTransactionDate}" HorizontalOptions="FillAndExpand" />
-
+                                            
 
                                             <Label Grid.Column="1" Text="{Binding Amount}" HorizontalOptions="CenterAndExpand" />
 
@@ -47,16 +47,11 @@
                                 Padding="30,0"
                                 Spacing="25">
                             <Label
+                                Text="{Binding DebtorId}"
                                 VerticalOptions = "Center"
                                 HorizontalOptions = "Center"/>
-
-                            <DatePicker Date="{Binding InputTransDate}" Grid.Row="1" />
-
                             <Entry Placeholder = "Enter Amount"
                                 Text = "{Binding InputAmount}"
-                                Grid.Row="2"/>
-                            <Entry Placeholder = "Enter DebtorId"
-                                Text = "{Binding InputDebtorId}"
                                 Grid.Row="2"/>
                             <Button
                                 Command="{Binding AddTransactionCommand}"
