@@ -5,7 +5,23 @@
              x:DataType="viewmodel:AddViewModel"
              x:Class="_1TheDebtBook.Pages.AddPage"
              Title="AddPage">
-    <ScrollView>
+
+    
+    <Grid RowDefinitions="*, Auto, 70"
+          ColumnDefinitions="0.10*,0.40*, 0.40*, 0.10*"
+          Padding="8"
+          RowSpacing="8"
+          ColumnSpacing="8">
+
+    <Label Grid.Column="1"
+        Grid.Row="0"
+        Text="Add Debtor"
+        HorizontalOptions="CenterAndExpand"
+        Style="{DynamicResource Label3}"/> <!-- Styled Label -->
+
+    <ScrollView Grid.Column="1"
+    Grid.ColumnSpan="2"
+    Grid.Row="1">
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
@@ -26,17 +42,24 @@
             <Label
                 Text="{Binding ViewAmount}" />
 
-            <Button
-                Command="{Binding AddDebtorViewCommand}"
-                Text="Save" 
-                HorizontalOptions="Fill" />
-            <Button 
-                Command="{Binding AddDebtorViewCommand}"
-                Text="Cancel"
-                HorizontalOptions="Fill" />
             
         </VerticalStackLayout>
     </ScrollView>
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            Command="{Binding AddDebtorViewCommand}"
+            Text="Save" 
+            HorizontalOptions="Fill"
+            Style="{DynamicResource Button1}"/> <!-- Styled Button -->
+        <Button 
+            Grid.Row="2"
+            Grid.Column="2"
+            Command="{Binding AddDebtorViewCommand}"
+            Text="Cancel"
+            HorizontalOptions="Fill"
+            Style="{DynamicResource Button1}"/> <!-- Styled Button -->
+    </Grid>
 
 </ContentPage>
 
