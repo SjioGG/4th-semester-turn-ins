@@ -20,6 +20,10 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout>
+                                         <Label Text="The Debt Book"
+                                                HorizontalOptions="Center"
+                                                Style="{DynamicResource Label3}"/> <!-- Styled Label -->
+                                    
                                         <Grid Padding="1">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
@@ -49,7 +53,8 @@
             <Button 
                 Text="Add Debtor"
                 Command="{Binding NavigateCommand}"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" 
+                Style="{DynamicResource Button1}"/> <!-- Styled Button -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
