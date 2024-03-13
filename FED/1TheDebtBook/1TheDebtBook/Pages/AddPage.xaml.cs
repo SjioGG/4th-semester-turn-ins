@@ -1,11 +1,13 @@
-namespace _1TheDebtBook.Pages;
 using _1TheDebtBook.ViewModels;
+using _1TheDebtBook.Helpers;
+namespace _1TheDebtBook.Pages;
+
 
 public partial class AddPage : ContentPage
 {
-	public AddPage()
+	public AddPage(AddViewModel vm)
 	{
 		InitializeComponent();
-        BindingContext = new Debtor();
+        BindingContext = vm;
     }
 }

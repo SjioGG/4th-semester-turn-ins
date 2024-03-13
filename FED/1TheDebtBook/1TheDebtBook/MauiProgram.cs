@@ -20,8 +20,8 @@ namespace _1TheDebtBook
 #if DEBUG
     		builder.Logging.AddDebug();
             // adding view models
-            builder.Services.AddSingleton<DebtorsViewModel>();
-            builder.Services.AddTransient<Debtor>();
+            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddTransient<AddViewModel>();
             // adding pages
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddTransient<AddPage>();

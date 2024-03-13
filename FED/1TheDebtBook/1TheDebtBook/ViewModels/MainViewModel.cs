@@ -5,15 +5,16 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using _1TheDebtBook.Pages;
 using CommunityToolkit.Mvvm.Input;
+using _1TheDebtBook.Models;
 
 namespace _1TheDebtBook.ViewModels
 {
-    public partial class DebtorsViewModel : ObservableObject
+    public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
         private ObservableCollection<Debtor> _debtors;
 
-        public DebtorsViewModel()
+        public MainViewModel()
         {
             Debtors = new ObservableCollection<Debtor>();
             _database = new Database();

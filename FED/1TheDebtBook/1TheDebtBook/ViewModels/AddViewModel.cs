@@ -9,25 +9,26 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using _1TheDebtBook.Data;
+using _1TheDebtBook.Models;
 
 namespace _1TheDebtBook.ViewModels
 {
-    public partial class Debtor : ObservableObject
+    public partial class AddViewModel : ObservableObject
     {
-        public Debtor()
+        [ObservableProperty]
+        Debtor debtor;
+
+        MainViewModel debtorsViewModel;
+        public AddViewModel(MainViewModel debtorsViewModel)
         {
             _database = new Database();
+            this.debtorsViewModel = debtorsViewModel;
         }
-
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(ViewName))]
-        string name;
-
-        public string ViewName => $"{Name}";
+        public string name;
+        public string ViewName => Name;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(ViewAmount))]
@@ -38,16 +39,16 @@ namespace _1TheDebtBook.ViewModels
         [RelayCommand]
         public async Task AddDebtorView()
         {
-            Debtor debtor = new Debtor();
-            debtor.Name = Name;
-            debtor.Amount = Amount;
+            Debtor debtor = new Debtor
+            {
+                Name = Name,
+                Amount = Amount
+            };
             await _database.AddDebtor(debtor);
-            Name = "";
-            Amount = 0.0;
+            debtorsViewModel.Debtors.Add(debtor);
         }
 
         private readonly Database _database;
-        private DebtorsViewModel _debtorsViewModel;
     }
 }
 

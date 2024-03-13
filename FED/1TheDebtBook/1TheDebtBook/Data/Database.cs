@@ -1,5 +1,5 @@
 ﻿using SQLite;
-using _1TheDebtBook.ViewModels;
+using _1TheDebtBook.Models;
 
 namespace _1TheDebtBook.Data
 {

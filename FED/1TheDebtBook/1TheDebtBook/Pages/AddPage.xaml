@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:_1TheDebtBook.ViewModels"
-             x:DataType="viewmodel:Debtor"
+             x:DataType="viewmodel:AddViewModel"
              x:Class="_1TheDebtBook.Pages.AddPage"
              Title="AddPage">
     <ScrollView>

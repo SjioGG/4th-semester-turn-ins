@@ -4,23 +4,42 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView ItemsSource="{Binding Debtors}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="1" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="{Binding ViewName}" />
-                            <Label Grid.Column="1" Text="{Binding ViewAmount}" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <Frame BackgroundColor="LightBlue" 
+                   Padding="15" 
+                   CornerRadius="10" 
+                   HeightRequest="300" 
+                   WidthRequest="550"
+                   BorderColor="White">
+
+                <ScrollView>
+                    <StackLayout>
+                        <CollectionView ItemsSource="{Binding Debtors}">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical" Span="1" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Grid Padding="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Text="{Binding Name}" HorizontalOptions="FillAndExpand"/>
+                                            <Label Grid.Column="1" Text="{Binding Amount}" HorizontalOptions="CenterAndExpand"/>
+                                        </Grid>
+                                        <!-- Adjusted BoxView -->
+                                        <BoxView HeightRequest="1" 
+                                                 BackgroundColor="White" 
+                                                 Margin="0"
+                                                 HorizontalOptions="FillAndExpand"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
 
             <Button 
                 Text="Add Debtor"

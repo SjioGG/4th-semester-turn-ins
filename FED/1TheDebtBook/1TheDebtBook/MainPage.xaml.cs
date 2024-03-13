@@ -10,7 +10,7 @@ namespace _1TheDebtBook
     public partial class MainPage : ContentPage
     {
 
-        public MainPage(DebtorsViewModel vm)
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
             BindingContext = vm;
