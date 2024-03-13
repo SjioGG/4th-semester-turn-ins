@@ -6,17 +6,17 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
+    <Color x:Key="Primary">#cef38a</Color> <!-- Changed to light green -->
+    <Color x:Key="PrimaryDark">#698732</Color> <!-- Changed to olive green -->
     <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="Secondary">#f4f7d8</Color> <!-- Changed to light yellow -->
+    <Color x:Key="SecondaryDarkText">#e5809e</Color> <!-- Changed to pink -->
+    <Color x:Key="Tertiary">#980b8c</Color> <!-- Changed to purple -->
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#D600AA</Color>
-    <Color x:Key="MidnightBlue">#190649</Color>
+    <Color x:Key="kokOrange">#f1b341</Color> <!-- Changed to Orange-->
+    <Color x:Key="kokBlue">#89f1fa</Color> <!-- Changed to Sky blue -->
     <Color x:Key="OffBlack">#1f1f1f</Color>
 
     <Color x:Key="Gray100">#E1E1E1</Color>
