@@ -30,10 +30,7 @@
                 Command="{Binding AddDebtorViewCommand}"
                 Text="Save" 
                 HorizontalOptions="Fill" />
-            <Button 
-                Command="{Binding AddDebtorViewCommand}"
-                Text="Cancel"
-                HorizontalOptions="Fill" />
+
             
         </VerticalStackLayout>
     </ScrollView>

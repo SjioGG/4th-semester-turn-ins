@@ -7,7 +7,7 @@
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
     <!-- Changed color palette -->
-    <Color x:Key="Primary">#FC3869</Color> 
+    <Color x:Key="Primary">#fff</Color> 
     <Color x:Key="PrimaryDark">#FC6E38</Color> 
     <Color x:Key="PrimaryDarkText">#FC4C38</Color>
     <Color x:Key="Secondary">#FF1BDB</Color> 
@@ -16,7 +16,7 @@
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
-    <Color x:Key="kokOrange">#FC3869</Color> <!-- Changed to pink'ish-->
+    <Color x:Key="kokOrange">#fff</Color> <!-- Changed to White-->
     <Color x:Key="kokBlue">#FF831C</Color> <!-- Changed to Orange'ish -->
     <Color x:Key="OffBlack">#1f1f1f</Color>
 

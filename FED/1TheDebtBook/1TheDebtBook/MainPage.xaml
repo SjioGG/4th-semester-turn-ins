@@ -15,6 +15,7 @@
                     <StackLayout>
                         <CollectionView ItemsSource="{Binding Debtors}"
                                         SelectionMode="Single"
+                                        SelectedItem="{Binding SelectedDebtor}"
                                         SelectionChangedCommand="{Binding ViewTransactionsCommand}">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical" Span="1" />

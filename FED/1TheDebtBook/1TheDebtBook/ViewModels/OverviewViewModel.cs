@@ -30,20 +30,15 @@ public partial class OverviewViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    DateTime transDate;
-    [ObservableProperty]
     double inputAmount;
-    [ObservableProperty]
-    int inputDebtorId;
+ 
 
     [RelayCommand]
     public async Task AddTransaction()
     {
         dTransaction transaction = new dTransaction
         {
-            dTransactionDate = TransDate,
-            Amount = InputAmount,
-            DebtorId = InputDebtorId
+            Amount = InputAmount
         };
         await _database.AddTransaction(transaction);
         Transactions.Add(transaction);
