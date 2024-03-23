@@ -5,6 +5,7 @@ using _1TheDebtBook.Pages;
 using CommunityToolkit.Mvvm.Input;
 using _1TheDebtBook.Models;
 
+
 namespace _1TheDebtBook.ViewModels
 {
     public partial class MainViewModel : ObservableObject
@@ -46,6 +47,10 @@ namespace _1TheDebtBook.ViewModels
         {
             await _database.ClearAllData();
         }
+
+        [ObservableProperty]
+        Debtor _selectedDebtor;
+        
 
         [RelayCommand]
         public async Task ViewTransactions()

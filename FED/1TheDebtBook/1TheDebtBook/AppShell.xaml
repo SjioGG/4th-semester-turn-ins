@@ -8,7 +8,7 @@
     Title="_1TheDebtBook">
 
     <ShellContent
-        Title="Deptors"
+        Title="DebtBook"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

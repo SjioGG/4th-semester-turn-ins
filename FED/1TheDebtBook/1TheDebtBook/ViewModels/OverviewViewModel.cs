@@ -29,27 +29,26 @@ namespace _1TheDebtBook.ViewModels
         {
             // Ensure DebtorId is set before retrieving transactions
 
-                var dTransactionViews = await _database.GetTransactionsForDebtor(DebtorId);
-                foreach (var dTransactionView in dTransactionViews)
-                {
-                    Transactions.Add(dTransactionView);
-                }
-            
+            var dTransactionViews = await _database.GetTransactionsForDebtor(DebtorId);
+            foreach (var dTransactionView in dTransactionViews)
+            {
+                Transactions.Add(dTransactionView);
+            }
+
         }
 
         [ObservableProperty]
-        private double _inputAmount;
+        double inputAmount;
+
 
         [RelayCommand]
         public async Task AddTransaction()
         {
             dTransaction transaction = new dTransaction
             {
-                Amount = InputAmount,
-                DebtorId = DebtorId
+                Amount = InputAmount
             };
             await _database.AddTransaction(transaction);
             Transactions.Add(transaction);
         }
     }
-}
