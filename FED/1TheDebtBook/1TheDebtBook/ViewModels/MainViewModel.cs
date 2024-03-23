@@ -11,7 +11,8 @@ namespace _1TheDebtBook.ViewModels
     {
         [ObservableProperty]
         private ObservableCollection<Debtor> _debtors;
-
+        [ObservableProperty]
+        Debtor _selectedDebtor;
         public MainViewModel()
         {
             Debtors = new ObservableCollection<Debtor>();
@@ -47,11 +48,11 @@ namespace _1TheDebtBook.ViewModels
         }
 
         [RelayCommand]
-        private async Task ViewTransactions(Debtor debtor)
+        public async Task ViewTransactions()
         {
-            Console.WriteLine("Viewing transactions for " + debtor.Id);
+            Console.WriteLine($"{SelectedDebtor.Id}");
             // Navigate to TransactionsPage passing debtor's ID
-            await AppShell.Current.GoToAsync($"{nameof(OverviewPage)}?DebtorId={debtor.Id}");
+            await AppShell.Current.GoToAsync($"{nameof(OverviewPage)}?DebtorId={SelectedDebtor.Id}");
         }
 
         [RelayCommand]

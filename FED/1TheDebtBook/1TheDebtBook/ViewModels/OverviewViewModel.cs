@@ -1,10 +1,8 @@
 ﻿using _1TheDebtBook.Data;
-using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.Input;
 using _1TheDebtBook.Models;
-using _1TheDebtBook.Pages;
-using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 
 namespace _1TheDebtBook.ViewModels
@@ -31,7 +29,7 @@ namespace _1TheDebtBook.ViewModels
         {
             // Ensure DebtorId is set before retrieving transactions
 
-                var dTransactionViews = await _database.GetTransactionsForDebtor(_debtorId);
+                var dTransactionViews = await _database.GetTransactionsForDebtor(DebtorId);
                 foreach (var dTransactionView in dTransactionViews)
                 {
                     Transactions.Add(dTransactionView);
