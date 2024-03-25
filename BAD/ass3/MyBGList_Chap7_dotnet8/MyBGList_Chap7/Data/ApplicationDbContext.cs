@@ -10,48 +10,93 @@ namespace MyBGList_Chap6.Data
         {
         }
 
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Packet> Packets { get; set; }
+        public DbSet<BakingGood> BakingGoods { get; set; }
+        public DbSet<Batch> Batches { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
+        public DbSet<OrderBakingGood> OrderContents { get; set; }
+        public DbSet<BakingGoodBatch> BakingGoodBatches { get; set; }
+        public DbSet<BatchStock> BatchDetails { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<BoardGames_Domains>()
-                .HasKey(i => new { i.BoardGameId, i.DomainId });
+            modelBuilder.Entity<Order>()
+                .HasKey(o => o.OrderId);
 
-            modelBuilder.Entity<BoardGames_Domains>()
-                .HasOne(x => x.BoardGame)
-                .WithMany(y => y.BoardGames_Domains)
-                .HasForeignKey(f => f.BoardGameId)
+            modelBuilder.Entity<Packet>()
+                .HasKey(p => p.PacketId);
+
+            modelBuilder.Entity<BakingGood>()
+                .HasKey(bg => bg.BakingGoodId);
+
+            modelBuilder.Entity<Batch>()
+                .HasKey(b => b.BatchId);
+
+            modelBuilder.Entity<Stock>()
+                .HasKey(s => s.StockId);
+
+            modelBuilder.Entity<OrderBakingGood>()
+                .HasKey(oc => new { oc.OrderId, oc.BakingGoodId });
+
+            modelBuilder.Entity<BakingGoodBatch>()
+                .HasKey(bg => new { bg.BatchId, bg.BakingGoodId });
+
+            modelBuilder.Entity<BatchStock>()
+                .HasKey(bd => new { bd.BatchId, bd.StockId });
+
+            // Define relationships
+
+            modelBuilder.Entity<Packet>()
+                .HasOne(p => p.Order)
+                .WithMany(o => o.Packets)
+                .HasForeignKey(p => p.OrderId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<BoardGames_Domains>()
-                .HasOne(o => o.Domain)
-                .WithMany(m => m.BoardGames_Domains)
-                .HasForeignKey(f => f.DomainId)
+            modelBuilder.Entity<OrderBakingGood>()
+                .HasOne(oc => oc.Order)
+                .WithMany(o => o.OrderBakingGoods)
+                .HasForeignKey(oc => oc.OrderId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<BoardGames_Mechanics>()
-                .HasKey(i => new { i.BoardGameId, i.MechanicId });
-
-            modelBuilder.Entity<BoardGames_Mechanics>()
-                .HasOne(x => x.BoardGame)
-                .WithMany(y => y.BoardGames_Mechanics)
-                .HasForeignKey(f => f.BoardGameId)
+            modelBuilder.Entity<OrderBakingGood>()
+                .HasOne(oc => oc.BakingGood)
+                .WithMany()
+                .HasForeignKey(oc => oc.BakingGoodId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<BoardGames_Mechanics>()
-                .HasOne(o => o.Mechanic)
-                .WithMany(m => m.BoardGames_Mechanics)
-                .HasForeignKey(f => f.MechanicId)
+
+            modelBuilder.Entity<BakingGoodBatch>()
+                .HasOne(bg => bg.Batch)
+                .WithMany(b => b.BakingGoodBatches)
+                .HasForeignKey(bg => bg.BatchId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<BakingGoodBatch>()
+                .HasOne(bg => bg.BakingGood)
+                .WithMany()
+                .HasForeignKey(bg => bg.BakingGoodId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<BatchStock>()
+                .HasOne(bd => bd.Batch)
+                .WithMany(b => b.BatchStocks)
+                .HasForeignKey(bd => bd.BatchId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<BatchStock>()
+                .HasOne(bd => bd.Stock)
+                .WithMany()
+                .HasForeignKey(bd => bd.StockId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
         }
-
-        public DbSet<BoardGame> BoardGames => Set<BoardGame>();
-        public DbSet<Domain> Domains => Set<Domain>();
-        public DbSet<Mechanic> Mechanics => Set<Mechanic>();
-        public DbSet<BoardGames_Domains> BoardGames_Domains => Set<BoardGames_Domains>();
-        public DbSet<BoardGames_Mechanics> BoardGames_Mechanics => Set<BoardGames_Mechanics>();
     }
 }

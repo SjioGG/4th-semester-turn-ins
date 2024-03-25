@@ -1,0 +1,29 @@
+﻿OrderId;DeliveryPlace;DeliveryDate
+1;New York;2024-04-01
+
+PacketId;TrackId;OrderId
+1;ABC123;1
+2;XYZ456;1
+
+BakingGoodId;BgName;DateProduced
+1;Flour;2024-03-20
+2;Sugar;2024-03-21
+
+BatchId;StartDateTime;EndDateTime;ActualEndTime
+1;2024-03-25 10:00:00;2024-03-25 14:00:00;2024-03-25 14:30:00
+
+StockId;SkName;Quantity
+1;Flour Stock;100
+2;Sugar Stock;200
+
+OrderBakingGoodId;OrderId;BakingGoodId;Quantity
+1;1;1;10
+2;1;2;5
+
+BatchBakingGoodId;BatchId;BakingGoodId;Quantity
+1;1;1;20
+2;1;2;10
+
+BatchStockId;BatchId;StockId;Quantity
+1;1;1;20
+2;1;2;10
